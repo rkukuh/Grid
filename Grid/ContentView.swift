@@ -25,6 +25,10 @@ struct ContentView: View {
             GridRow(alignment: .bottom) {
                 Text("I’m on the bottom of the view!")
                 Color.red
+                
+                Text("I'm on the top of the view!")
+                    .gridCellAnchor(.top)
+
             }
         }
     }
