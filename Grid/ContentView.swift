@@ -21,6 +21,14 @@ struct ContentView: View {
                 Color.teal
                     .gridCellColumns(2)
             }
+            
+            GridRow {
+                Text("Text inside grid row")
+                Image(systemName: "person.crop.circle")
+                    .resizable()
+                    .frame(width: 50, height: 50)
+                Text("Another text inside grid row")
+            }
         }
     }
 }
