@@ -19,6 +19,11 @@ struct ContentView: View {
     
     var body: some View {
         ScrollView {
+            Image("swift-bird")
+                .resizable()
+                .scaledToFit()
+                .colorMultiply(selectedColor)
+            
             LazyVGrid(columns: columnLayout) {
                 ForEach(allColors.indices, id: \.self) { index in
                     Button {
