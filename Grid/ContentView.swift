@@ -8,12 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    let columnLayout = Array(repeating: GridItem() , count: 3)
+    
+    let allColors: [Color] = [
+        .pink, .red, .orange, .yellow, .green, .mint, .teal,
+            .cyan, .blue, .indigo, .purple, .brown, .gray
+    ]
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ScrollView {
+            LazyVGrid(columns: columnLayout) {
+                ForEach(allColors.indices, id: \.self) { index in
+                    RoundedRectangle(cornerRadius: 4.0)
+                        .aspectRatio(1.0, contentMode: ContentMode.fit)
+                        .foregroundColor(allColors[index])
+                }
+            }
         }
         .padding()
     }
