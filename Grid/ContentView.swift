@@ -15,6 +15,11 @@ struct ContentView: View {
                 Color.orange
                 Color.pink
             }
+            
+            GridRow {
+                Color.blue
+                Color.teal
+            }
         }
     }
 }
