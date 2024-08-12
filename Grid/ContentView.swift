@@ -19,6 +19,7 @@ struct ContentView: View {
             GridRow {
                 Color.blue
                 Color.teal
+                    .gridCellColumns(2)
             }
         }
     }
