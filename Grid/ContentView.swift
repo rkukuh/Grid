@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    let columnLayout = Array(repeating: GridItem(.fixed(75), spacing: 20, alignment: .center),
+    let columnLayout = Array(repeating: GridItem(.flexible(minimum: 20, maximum: 100)),
                              count: 3)
     
     let allColors: [Color] = [
