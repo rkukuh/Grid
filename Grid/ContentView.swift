@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Grid {
+        Grid(alignment: .top, horizontalSpacing: 20, verticalSpacing: 40) {
             GridRow {
                 Color.mint
                 Color.orange
