@@ -8,29 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    let columnLayout = Array(repeating: GridItem(), count: 3)
+    
+    let allColors: [Color] = [
+        .pink, .red, .orange, .yellow, .green, .mint, .teal,
+            .cyan, .blue, .indigo, .purple, .brown, .gray
+    ]
+    
     var body: some View {
-        Grid(alignment: .top, horizontalSpacing: 20, verticalSpacing: 40) {
-            GridRow {
-                Color.mint
-                Color.orange
-                Color.pink
-            }
-            
-            GridRow {
-                Color.blue
-                Color.teal
-                    .gridCellColumns(2)
-            }
-            
-            GridRow(alignment: .bottom) {
-                Text("I’m on the bottom of the view!")
-                Color.red
-                
-                Text("I'm on the top of the view!")
-                    .gridCellAnchor(.top)
-
+        ScrollView {
+            LazyVGrid(columns: columnLayout) {
+                ForEach(allColors.indices, id: \.self) { index in
+                    RoundedRectangle(cornerRadius: 8.0)
+                        .aspectRatio(1, contentMode: ContentMode.fit)
+                        .foregroundColor(allColors[index])
+                }
             }
         }
+        .padding()
     }
 }
 
