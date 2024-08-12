@@ -8,17 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
-    let columnLayout = Array(repeating: GridItem(.flexible(minimum: 20, maximum: 100)),
-                             count: 3)
+    let customColumns = [
+        GridItem(.fixed(75)),
+        GridItem(.fixed(100)),
+        GridItem(.flexible(minimum: 125, maximum: 250))
+    ]
     
     let allColors: [Color] = [
         .pink, .red, .orange, .yellow, .green, .mint, .teal,
-            .cyan, .blue, .indigo, .purple, .brown, .gray
+        .cyan, .blue, .indigo, .purple, .brown, .gray
     ]
     
     var body: some View {
         ScrollView {
-            LazyVGrid(columns: columnLayout) {
+            LazyVGrid(columns: customColumns) {
                 ForEach(allColors.indices, id: \.self) { index in
                     RoundedRectangle(cornerRadius: 8.0)
                         .aspectRatio(1, contentMode: ContentMode.fit)
